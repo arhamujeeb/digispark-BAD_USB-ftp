@@ -13,11 +13,11 @@ void loop() {
   DigiKeyboard.delay(500);
   DigiKeyboard.print(mode);
   DigiKeyboard.delay(500);
-   DigiKeyboard.sendKeyStroke(KEY_ENTER, MOD_CONTROL_LEFT | MOD_SHIFT_LEFT);
+  DigiKeyboard.sendKeyStroke(KEY_ENTER, MOD_CONTROL_LEFT | MOD_SHIFT_LEFT);
   DigiKeyboard.delay(1000);
   DigiKeyboard.sendKeyStroke(KEY_ARROW_LEFT);
   DigiKeyboard.sendKeyStroke(KEY_ENTER);
-	 DigiKeyboard.delay(500);
+	DigiKeyboard.delay(500);
   DigiKeyboard.print(" mkdir D:\\files");
 	DigiKeyboard.sendKeyStroke(KEY_ENTER);
 	DigiKeyboard.delay(600);
